@@ -2,15 +2,31 @@ import React, { Component } from 'react'
 import Header from './components/Header/Header'
 import './App.css'
 
-class App extends Component {
+/****************************
+ * Components
+ *****************************/
 
+const UserHint = ({ loading, hintText }) => (
+  <div className="user-hint">
+    {loading ? (
+      <img
+        src={require('./images/loader.svg')}
+        className="block mx-auto"
+        alt="Loader"
+      />
+    ) : (
+      hintText
+    )}
+  </div>
+)
+
+class App extends Component {
   state = {
     gifs: [],
     searchTerm: '',
     hintText: '',
     loading: false
   }
-
 
   // TODO: Make API call from Giphy
   handleChange = event => {
@@ -35,6 +51,15 @@ class App extends Component {
       this.searchGiphy(value)
     }
   }
+
+  searchGiphy = async term => {
+    try {
+      const response = await fetch(
+        `https://api.giphy.com/v1/gifs/search?api_key=39uNVWMZ9EdW6x98crWIUAs3dlalRN3m&q=${term}&limit=25&offset=0&rating=G&lang=en`
+      )
+    } catch (error) {}
+  }
+
   render() {
     return (
       <div className="page">
