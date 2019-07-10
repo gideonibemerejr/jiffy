@@ -26,4 +26,3 @@ Jiffy uses the **[Giphy](https://giphy.com)** [API](https://developers.giphy.com
 - [JSX](https://reactjs.org/docs/introducing-jsx.html)
 - [React](https://reactjs.org)
 - [Create React App](https://facebook.github.io/create-react-app/)
-- [Tachyons](https://tachyons.io/)
