@@ -49,9 +49,6 @@ class App extends Component {
       }
       const randomGif = randomChoice(data)
 
-      console.log({ randomGif })
-      console.log({ data })
-
       this.setState((prevState, props) => ({
         ...prevState,
         gifs: [...prevState.gifs, randomGif],
