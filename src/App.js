@@ -39,9 +39,9 @@ class App extends Component {
       loading: true
     })
     try {
-      const response = await fetch(
-        `https://api.giphy.com/v1/gifs/search?api_key=39uNVWMZ9EdW6x98crWIUAs3dlalRN3m&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`
-      )
+      const API_KEY = process.env.REACT_APP_API_KEY
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`
+      const response = await fetch(url)
       const { data } = await response.json()
 
       if (!data.length) {
